@@ -131,11 +131,10 @@ Tine.Filemanager.DocumentPreview = Ext.extend(Ext.Panel, {
                 fetch(pdfFile)
                     .then( (response) => response.blob() )
                     .then( (pdfBlob) => {
-                        const pdfOptions = 'view=FitH';
+                        const pdfOptions = 'view=FitH&pagemode=none';
                         me.previewContainer.update({
                             html: '<object style="width: 100%; height:100%; position:absolute;" type="application/pdf" data="' + URL.createObjectURL(pdfBlob) + '#' + pdfOptions + '"></object>',
                             xtype: 'panel',
-                            cls: 'dark-reverse',
                             frame: true,
                             border: true
                         })
